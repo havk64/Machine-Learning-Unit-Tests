@@ -14,6 +14,11 @@
 ##
 ## Enjoy!
 
+%% Test for warmUpExercise
+%!shared A
+%! A = eye(5);
+%!assert(warmUpExercise(),A);
+
 %% Test for computeCost function
 %% Test case 1
 %!shared X, y, theta, expected
