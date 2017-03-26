@@ -14,4 +14,4 @@ break things up.
 
 - [Week 2](week2)
   - [Mandatory functions](week2/week2-unitTest.m)
-  = [Optional functions](week2/week2-unitTest-Optional.m)
+  - [Optional functions](week2/week2-unitTest-Optional.m)
