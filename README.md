@@ -11,3 +11,7 @@ the information to test each function properly.
 Using the code provided here should make a lot easier to try different
 implementations, vectorization techniques, etc., without get lost or
 break things up.
+
+- [Week 2](week2)
+  - [Mandatory functions](week2/week2-unitTest.m)
+  = [Optional functions](week2/week2-unitTest-Optional.m)
