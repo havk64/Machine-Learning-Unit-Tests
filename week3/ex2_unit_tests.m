@@ -38,7 +38,7 @@
 %!assert(sigmoid([4 5 6]), [0.98201, 0.99331, 0.99753], tol);
 %!assert(sigmoid(eye(2)), e_exp, tol);
 %!assert(sigmoid(magic(3)),m_exp, tol);
-%! fprintf('PASSED!\n');
+%! fprintf('OK!!!\n');
 
 %% Test for costFunction(Unregularized)
 %!shared X, y, theta, J, grad, tol
@@ -50,7 +50,7 @@
 %! fprintf('Testing costFunction... ');
 %!assert(J, 4.6832, tol);
 %!assert(grad, [0.31722 0.87232 1.64812 2.23787]', tol);
-%! fprintf('PASSED!\n');
+%! fprintf('OK!!!\n');
 
 %% Test for predict function
 %% Test case 1
@@ -67,7 +67,7 @@
 %! expected = logical([0 0 1])';
 %! fprintf('2 ');
 %!assert(predict(theta,X), expected);
-%! fprintf('PASSED!\n');
+%! fprintf('OK!!!\n');
 
 %% Test for costFunctionReg(Regularized)
 %% Test case 1
@@ -90,4 +90,4 @@
 %! fprintf('2 ');
 %!assert(J, 8.6832, tol);
 %!assert(grad, [0.31722 -0.46102 2.98146 4.90454]', tol);
-%! fprintf('PASSED!\n');
+%! fprintf('OK!!!\n');
