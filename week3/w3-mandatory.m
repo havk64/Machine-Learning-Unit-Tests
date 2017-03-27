@@ -69,7 +69,7 @@
 %! y = [1 0 1]';
 %! theta = [-2 -1 1 2]';
 %! [J grad] = costFunctionReg(theta, X, y, 0);
-%! tol = eps;
+%! tol = 14^10*eps;
 %!assert(J, 4.6832, tol);
 %!assert(grad, [0.31722 0.87232 1.64812 2.23787]', tol);
 %% Test case 2
@@ -78,6 +78,6 @@
 %! y = [1 0 1]';
 %! theta = [-2 -1 1 2]';
 %! [J grad] = costFunctionReg(theta, X, y, 4);
-%! tol = eps;
+%! tol = 14^10*eps;
 %!assert(J, 8.6832, tol);
 %!assert(grad, [0.31722 -0.46102 2.98146 4.90454]', tol);
