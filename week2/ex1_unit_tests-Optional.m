@@ -34,7 +34,7 @@
 %! [Xn mu sigma] = featureNormalize([1; 2; 3]);
 %! exp = [-1;0;1];
 %! tol = eps;
-%! fprintf('Testing featureNormalize function...\n');
+%! fprintf('Testing featureNormalize function... 1,');
 %!assert(Xn, exp);
 %!assert(mu, 2);
 %!assert(sigma, 1);
@@ -43,6 +43,7 @@
 %! [Xn mu sigma] = featureNormalize(magic(3));
 %! exp = [1.13389 -1.00000 0.37796; -0.75593 0.00000 0.75593; -0.37796 1.00000 -1.13389];
 %! tol = -10^14*eps;
+%! fprintf('2,');
 %!assert(Xn, exp, tol);
 %!assert(mu, [5 5 5]);
 %!assert(sigma,[2.6548 4.0000 2.6458], tol);
@@ -52,9 +53,11 @@
 %! exp = [-1.21725 -1.01472 -1.21725;...
 %! 1.21725 -0.56373 0.67625; -0.13525 0.33824 0.94675; 0.13525 1.24022 -0.40575];
 %! tol = -10^11*eps;
+%! fprintf('3 ');
 %!assert(Xn, exp, tol);
 %!assert(mu, [3.5 3.5 3.5]);
 %!assert(sigma,[3.6968 4.4347 3.6968], tol);
+%! fprintf('OK!!!\n');
 
 %% Test for computeCostMulti function
 %% Test case 1
@@ -64,8 +67,9 @@
 %! theta = [0.4; 0.6; 0.8];
 %! expected = 5.2950;
 %! tol = -4*eps;
-%! fprintf('Testing computeCostMulti function...\n');
+%! fprintf('Testing computeCostMulti function... ');
 %!assert(computeCostMulti(X, y, theta), expected, tol);
+%! fprintf('OK!!!\n');
 
 %% Test for gradientDescentMulti function
 %% Test case 1
@@ -78,10 +82,12 @@
 %! [theta J_hist] = gradientDescentMulti(X, y, th, alpha, num_iter);
 %! theta_exp = [0.23680; 0.56524; 0.31248];
 %! tol = -13^10*eps;
-%! fprintf('Testing gradienteDescentMulti function...\n');
+%! fprintf('Testing gradienteDescentMulti function... ');
 %!assert(theta, theta_exp, tol);
 %!assert(J_hist(1), 2.8299, tol);
 %!assert(J_hist(end), 0.0017196, tol);
+%! fprintf('OK!!!\n');
+
 
 %% Test for normalEqn function
 %% Test case 1
@@ -90,6 +96,7 @@
 %! y = [2; 5; 5; 6];
 %! tol = -11^10*eps;
 %! expected = [0.0083857; 0.5681342; 0.4863732];
-%! fprintf('Testing normalEqn function...\n');
+%! fprintf('Testing normalEqn function... ');
 %!assert(normalEqn(X,y), expected, tol);
+%! fprintf('OK!!!\n');
 
