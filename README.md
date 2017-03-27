@@ -13,9 +13,9 @@ implementations, vectorization techniques, etc., without get lost or
 break things up.
 
 - [Week 2](week2)
-  - [Mandatory functions](week2/week2-unitTest.m)
-  - [Optional functions](week2/week2-unitTest-Optional.m)
+  - [Mandatory functions](week2/ex1_unit_tests.m)
+  - [Optional functions](week2/ex1_unit_tests-Optional.m)
 
 - [Week 3](week3)
-  - [Mandatory functions](week3/w3-mandatory.m)
-  - [Optional functions](week3/w3-optional.m)
+  - [Mandatory functions](week3/ex2_unit_tests.m)
+  - [Optional functions](week3/ex2_unit_tests-Optional.m)
