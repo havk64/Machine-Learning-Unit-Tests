@@ -29,7 +29,9 @@
 %% Test for warmUpExercise
 %!shared A
 %! A = eye(5);
+%! fprintf('Testing warmUpExercise function... ');
 %!assert(warmUpExercise(),A);
+%! fprintf('OK!!!\n');
 
 %% Test for computeCost function
 %% Test case 1
@@ -38,7 +40,7 @@
 %! y = [7; 6; 5; 4];
 %! theta = [0.1; 0.2];
 %! expected = 11.9450;
-%! fprintf('Testing computeCost function...\n');
+%! fprintf('Testing computeCost function... 1,');
 %!assert(computeCost(X, y, theta), expected);
 %% Test case 2
 %!shared X, y, theta, expected, tol
@@ -47,7 +49,9 @@
 %! theta = [0.1; 0.2; 0.3];
 %! expected = 7.0175;
 %! tol = -2*eps;
+%! fprintf('2 ');
 %!assert(computeCost(X, y, theta), expected, tol);
+%! fprintf('OK!!!\n');
 
 %% Test for gradientDescent function
 %% Test case 1
@@ -60,7 +64,7 @@
 %! [theta J_hist] = gradientDescent(X, y, th, alpha, iter);
 %! expected = [5.2148; -0.57335];
 %! tol = -12^10*eps;
-%! fprintf('Testing gradientDescent function...\n');
+%! fprintf('Testing gradientDescent function... 1,');
 %!assert(theta, expected, tol);
 %!assert(J_hist(1), 5.9794, tol);
 %!assert(J_hist(end), 0.85426, tol);
@@ -69,6 +73,8 @@
 %! [theta J_hist] = gradientDescentMulti([1 5; 1 2],[1 6]',[.5 .5]',0.1,10);
 %! thexp = [ 1.70986; 0.19229 ];
 %! tol = -13^10*eps;
+%! fprintf('2 ');
 %!assert(theta, thexp, tol); 
 %!assert(J_hist(1), 5.8853, tol);
+%! fprintf('OK!!!\n');
 
