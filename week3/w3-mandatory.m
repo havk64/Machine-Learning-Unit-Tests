@@ -38,4 +38,31 @@
 %!assert(sigmoid(eye(2)), e_exp, tol);
 %!assert(sigmoid(magic(3)),m_exp, tol);
 
-
+%% Test for costFunction(Unregularized)
+%!shared X, y, theta, J, grad, tol
+%! X = [ones(3,1) magic(3)];
+%! y = [1 0 1]';
+%! theta = [-2 -1 1 2]';
+%! [J grad] = costFunction(theta, X, y);
+%! tol = 10^12*eps;
+%!assert(J, 4.6832, tol);
+%!assert(grad, [0.31722 0.87232 1.64812 2.23787]', tol);
+%% Test for costFunctionReg(Regularized)
+%% Test case 1
+%!shared X, y, theta, J, grad, tol
+%! X = [ones(3,1) magic(3)];
+%! y = [1 0 1]';
+%! theta = [-2 -1 1 2]';
+%! [J grad] = costFunctionReg(theta, X, y, 0);
+%! tol = eps;
+%!assert(J, 4.6832, tol);
+%!assert(grad, [0.31722 0.87232 1.64812 2.23787]', tol);
+%% Test case 2
+%!shared X, y, theta, J, grad, tol
+%! X = [ones(3,1) magic(3)];
+%! y = [1 0 1]';
+%! theta = [-2 -1 1 2]';
+%! [J grad] = costFunctionReg(theta, X, y, 4);
+%! tol = eps;
+%!assert(J, 8.6832, tol);
+%!assert(grad, [0.31722 -0.46102 2.98146 4.90454]', tol);
