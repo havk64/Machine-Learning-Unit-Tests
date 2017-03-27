@@ -47,6 +47,21 @@
 %! tol = 10^12*eps;
 %!assert(J, 4.6832, tol);
 %!assert(grad, [0.31722 0.87232 1.64812 2.23787]', tol);
+
+%% Test for predict function
+%% Test case 1
+%!shared X, theta,expected
+%! X = [1 1 ; 1 2.5 ; 1 3 ; 1 4];
+%! theta = [-3.5 ; 1.3];
+%! expected = logical([0 0 1 1])';
+%!assert(predict(theta, X), expected);
+%% Test case 2
+%!shared X, theta, expected
+%! X = magic(3);
+%! theta = [4 3 -8]';
+%! expected = logical([0 0 1])';
+%!assert(predict(theta,X), expected);
+
 %% Test for costFunctionReg(Regularized)
 %% Test case 1
 %!shared X, y, theta, J, grad, tol
