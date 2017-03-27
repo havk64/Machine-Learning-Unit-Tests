@@ -17,9 +17,9 @@
 ##
 ## Unit test for week 2, Programming assignment - Mandatory functions
 ## Put this file in the ex1/ folder and execute it from Octave with:
-## >> test week2-unitTest
+## >> test ex1_unit_tests
 ## or
-## >> test week2-unitTest verbose % if you want more details about error/success
+## >> test ex1_unit_tests verbose % if you want more details about error/success
 ##
 ## Enjoy!
 ##
