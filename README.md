@@ -15,3 +15,7 @@ break things up.
 - [Week 2](week2)
   - [Mandatory functions](week2/week2-unitTest.m)
   - [Optional functions](week2/week2-unitTest-Optional.m)
+
+- [Week 3](week3)
+  - [Mandatory functions](week3/w3-mandatory.m)
+  - [Optional functions](week3/w3-optional.m)
