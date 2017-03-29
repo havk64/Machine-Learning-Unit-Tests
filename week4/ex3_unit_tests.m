@@ -39,3 +39,35 @@
 %! fprintf(' - Cost Function OK!\n');
 %!assert(grad, [ 0.14656 -0.54856 0.72472 1.39800]', tol);
 %! fprintf(' - Gradient OK!\n   PASSED!\n');
+
+%% Test for oneVsAll function
+%!shared X, y, num_labels, lambda, expected, tol
+%! X = [magic(3) ; sin(1:3); cos(1:3)];
+%! y = [1; 2; 2; 1; 3];
+%! num_labels = 3;
+%! lambda = 0.1;
+%! expected = [-0.559478   0.619220  -0.550361  -0.093502; ...
+%! -5.472920  -0.471565   1.261046   0.634767; ...
+%! 0.068368  -0.375582  -1.652262  -1.410138];
+%! tol = -12^10*eps;
+%! fprintf('Testing oneVsAll function... ');
+%!assert(oneVsAll(X, y, num_labels, lambda), expected, tol);
+%! fprintf('PASSED!\n');
+
+% Test for predictOneVsAll function
+%!shared all_theta, X
+%! X = X = [1 7; 4 5; 7 8; 1 4];
+%! all_theta = [1 -6 3; -2 4 -3];
+%! fprintf('Testing predictOneVsAll function... ');
+%!assert(predictOneVsAll(all_theta, X),[1 2 2 1]');
+%! fprintf('PASSED!\n');
+
+%% Test for predict function
+%!shared Theta1, Theta2, X, expected
+%! Theta1 = reshape(sin(0 : 0.5 : 5.9), 4, 3);
+%! Theta2 = reshape(sin(0 : 0.3 : 5.9), 4, 5);
+%! X = reshape(sin(1:16), 8, 2);
+%! expected = [4 1 1 4 4 4 4 2];
+%! fprintf('Testing predict function... ');
+%!assert(predict(Theta1, Theta2, X), expected);
+%! fprintf('PASSED!\n');
