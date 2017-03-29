@@ -19,3 +19,6 @@ break things up.
 - [Week 3](week3)
   - [Mandatory functions](week3/ex2_unit_tests.m)
   - [Optional functions](week3/ex2_unit_tests-Optional.m)
+
+- [Week 4](week4)
+  - [Mandatory functions](week4/ex3_unit_tests.m)
