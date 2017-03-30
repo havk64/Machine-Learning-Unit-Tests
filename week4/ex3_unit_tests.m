@@ -47,28 +47,18 @@
 %! y = [1; 2; 2; 1; 3];
 %! num_labels = 3;
 %! lambda = 0.1;
-%! expected = [-0.55952   0.61925  -0.550361  -0.093526; ...
-%! -5.4732  -0.47164   1.2611   0.63487; ...
-%! 0.068381  -0.37559  -1.652262  -1.410138];
-%! tol = -13^10*eps;
+%! expected = [-0.559478   0.619220  -0.550361  -0.093502; ...
+%! -5.4738  -0.471565   1.2613   0.63482; ...
+%! 0.068368  -0.375582  -1.652262  -1.410138];
+%! tol = -12^10*eps(2);
 %! fprintf('Testing oneVsAll function:\n');
 %!assert(oneVsAll(X, y, num_labels, lambda), expected, tol);
 %! fprintf('Function oneVsAll => PASSED!\n');
 
 % Test for predictOneVsAll function
 %!shared all_theta, X
-%! X = X = [1 7; 4 5; 7 8; 1 4];
+%! X = [1 7; 4 5; 7 8; 1 4];
 %! all_theta = [1 -6 3; -2 4 -3];
-%! fprintf('Testing predictOneVsAll function... ');
+%! fprintf('Testing predictOneVsAll function:\n');
 %!assert(predictOneVsAll(all_theta, X),[1 2 2 1]');
-%! fprintf('PASSED!\n');
-
-%% Test for predict function
-%!shared Theta1, Theta2, X, expected
-%! Theta1 = reshape(sin(0 : 0.5 : 5.9), 4, 3);
-%! Theta2 = reshape(sin(0 : 0.3 : 5.9), 4, 5);
-%! X = reshape(sin(1:16), 8, 2);
-%! expected = [4 1 1 4 4 4 4 2];
-%! fprintf('Testing predict function... ');
-%!assert(predict(Theta1, Theta2, X), expected);
-%! fprintf('PASSED!\n');
+%! fprintf('predictOneVsAll function => PASSED!\n');
