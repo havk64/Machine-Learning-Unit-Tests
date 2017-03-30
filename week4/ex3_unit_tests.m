@@ -26,7 +26,7 @@
 ## Author: Alexandro <alexandro.oliveira@holbertonschool.com>
 ## Created: 2017-03-27
 
-%% Test for lsCostFunction
+%% Test for lrCostFunction
 %!shared X, theta, y, lambda, tol, J, grad
 %! X = [ones(5,1) reshape(1:15,5,3)/10];
 %! y = [1;0;1;0;1] >= 0.5; %% creates a logical array
@@ -38,7 +38,8 @@
 %!assert(J, 2.5348, tol);
 %! fprintf(' - Cost Function OK!\n');
 %!assert(grad, [ 0.14656 -0.54856 0.72472 1.39800]', tol);
-%! fprintf(' - Gradient OK!\n   PASSED!\n');
+%! fprintf(' - Gradient OK!\n');
+%! fprintf('lrCostFunction => PASSED!\n');
 
 %% Test for oneVsAll function
 %!shared X, y, num_labels, lambda, expected, tol
@@ -46,13 +47,13 @@
 %! y = [1; 2; 2; 1; 3];
 %! num_labels = 3;
 %! lambda = 0.1;
-%! expected = [-0.559478   0.619220  -0.550361  -0.093502; ...
-%! -5.472920  -0.471565   1.261046   0.634767; ...
-%! 0.068368  -0.375582  -1.652262  -1.410138];
-%! tol = -12^10*eps;
-%! fprintf('Testing oneVsAll function... ');
+%! expected = [-0.55952   0.61925  -0.550361  -0.093526; ...
+%! -5.4732  -0.47164   1.2611   0.63487; ...
+%! 0.068381  -0.37559  -1.652262  -1.410138];
+%! tol = -13^10*eps;
+%! fprintf('Testing oneVsAll function:\n');
 %!assert(oneVsAll(X, y, num_labels, lambda), expected, tol);
-%! fprintf('PASSED!\n');
+%! fprintf('Function oneVsAll => PASSED!\n');
 
 % Test for predictOneVsAll function
 %!shared all_theta, X
