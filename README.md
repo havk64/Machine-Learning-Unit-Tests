@@ -21,4 +21,5 @@ break things up.
   - [Optional functions](week3/ex2_unit_tests-Optional.m)
 
 - [Week 4](week4)
-  - [Mandatory functions](week4/ex3_unit_tests.m)
+  - [Logistic Regression](week4/ex3_unit_tests.m)
+  - [Neural Networks](week4/ex3_nn_unit_tests.m)
