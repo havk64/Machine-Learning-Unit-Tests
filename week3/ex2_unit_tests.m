@@ -43,7 +43,8 @@
 %!assert(sigmoid(eye(2)), e_exp, tol);
 %! fprintf('  - Test 5 OK!\n');
 %!assert(sigmoid(magic(3)),m_exp, tol);
-%! fprintf('  - Test 6 OK! => PASSED!\n');
+%! fprintf('  - Test 6 OK!\n');
+%! fprintf('Sigmoid function => PASSED!\n');
 
 %% Test for costFunction(Unregularized)
 %!shared X, y, theta, J, grad, tol
@@ -56,7 +57,27 @@
 %!assert(J, 4.6832, tol);
 %! fprintf('  - Cost function OK!\n');
 %!assert(grad, [0.31722 0.87232 1.64812 2.23787]', tol);
-%! fprintf('  - Gradient OK! => PASSED!\n');
+%! fprintf('  - Gradient OK!\n');
+%% Test with exercise dataset(same test of ex2.m file)
+%!shared data, X, y, theta, J, Jt, grad, gradt, test_theta, tol
+%! data = load('ex2data1.txt');
+%! X = [ones(size(data, 1), 1) data(:, [1 2])];
+%! theta = zeros(size(X, 2), 1);
+%! y = data(:, 3);
+%! test_theta = [-24 0.2 0.2]';
+%! tol = -12^10*eps;
+%! [J grad] = costFunction(theta, X, y);
+%! [Jt gradt] = costFunction(test_theta, X, y);
+%! fprintf('Testing with exercise dataset:\n')
+%!assert(J, 0.69315, tol);
+%! fprintf('  - Cost function OK!\n');
+%!assert(grad, [-0.1 -12.0092 -11.2628]', tol);
+%! fprintf('  = Gradient OK!\n');
+%!assert(Jt, 0.21833, tol);
+%! fprintf(' - Cost function OK!\n')
+%!assert(gradt, [0.042903 2.5662 2.6468]', tol);
+%! fprintf('  - Gradient OK!\n');
+%! fprintf('Cost Function and Gradient => PASSED!\n');
 
 %% Test for predict function
 %% Test case 1
@@ -73,7 +94,8 @@
 %! theta = [4 3 -8]';
 %! expected = logical([0 0 1])';
 %!assert(predict(theta,X), expected);
-%! fprintf('  - Test 2 OK! => PASSED!\n');
+%! fprintf('  - Test 2 OK!\n');
+%! fprintf('Predict function => PASSED!\n');
 
 %% Test for costFunctionReg(Regularized)
 %% Test case 1
@@ -98,4 +120,5 @@
 %!assert(J, 8.6832, tol);
 %! fprintf('  - Cost function Test 2 OK!\n');
 %!assert(grad, [0.31722 -0.46102 2.98146 4.90454]', tol);
-%! fprintf('  - Gradient test 2 OK! => PASSED!\n');
+%! fprintf('  - Gradient test 2 OK!\n');
+%! fprintf('Cost function regularized => PASSED!\n');
