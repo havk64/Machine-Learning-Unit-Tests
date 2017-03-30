@@ -34,4 +34,4 @@
 %! expected = [4 1 1 4 4 4 4 2]';
 %! fprintf('Testing predict function...\n');
 %!assert(predict(Theta1, Theta2, X), expected);
-%! fprintf('Test on Predict function => PASSED!\n');
+%! fprintf('Test on Predict function => PASSED!\n\n');

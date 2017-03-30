@@ -15,7 +15,7 @@
 
 ## -*- texinfo -*-
 ##
-## Unit test for week 3, Programming assignment
+## Unit test for week 4, Programming assignment
 ## Put this file in the ex3/ folder and execute it from Octave with:
 ## >> test ex3_unit_tests
 ## or
@@ -39,7 +39,7 @@
 %! fprintf(' - Cost Function OK!\n');
 %!assert(grad, [ 0.14656 -0.54856 0.72472 1.39800]', tol);
 %! fprintf(' - Gradient OK!\n');
-%! fprintf('Test on lrCostFunction => PASSED!\n');
+%! fprintf('Test on lrCostFunction => PASSED!\n\n');
 
 %% Test for oneVsAll function
 %!shared X, y, num_labels, lambda, expected, tol
@@ -53,7 +53,7 @@
 %! tol = -12^10*eps(2);
 %! fprintf('Testing oneVsAll function...\n');
 %!assert(oneVsAll(X, y, num_labels, lambda), expected, tol);
-%! fprintf('Test on Function oneVsAll => PASSED!\n');
+%! fprintf('Test on Function oneVsAll => PASSED!\n\n');
 
 % Test for predictOneVsAll function
 %!shared all_theta, X
@@ -61,4 +61,4 @@
 %! all_theta = [1 -6 3; -2 4 -3];
 %! fprintf('Testing predictOneVsAll function...\n');
 %!assert(predictOneVsAll(all_theta, X),[1 2 2 1]');
-%! fprintf('Test on predictOneVsAll function => PASSED!\n');
+%! fprintf('Test on predictOneVsAll function => PASSED!\n\n');
