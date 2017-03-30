@@ -1,32 +1,22 @@
 ## Copyright (C) 2017 Machine Learning Coursera - March 2017
 ##
-## This program is free software; you can redistribute it and/or modify it
-## under the terms of the GNU General Public License as published by
-## the Free Software Foundation; either version 3 of the License, or
-## (at your option) any later version.
-##
-## This program is distributed in the hope that it will be useful,
-## but WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-## GNU General Public License for more details.
-##
-## You should have received a copy of the GNU General Public License
-## along with this program.  If not, see <http://www.gnu.org/licenses/>.
+## Author: Alexandro <alexandro.oliveira@holbertonschool.com>
+## Created: 2017-03-25
 
 ## -*- texinfo -*-
 ##
 ## Unit test for week 2, Programming assignment - Optional functions
+##
 ## Put this file in the ex1/ folder and execute it from Octave with:
+##
 ## >> test ex1_unit_tests-Optional
-## or
-## >> test ex1_unit_tests-Optional verbose % if you want more details about error/success
+##
+## or, if you want more details about error/success
+##
+## >> test ex1_unit_tests-Optional verbose
 ##
 ## Enjoy!
 ##
-## Author: Alexandro <alexandro.oliveira@holbertonschool.com>
-## Created: 2017-03-25
-
-%% Optional tasks/functions
 
 %% Test for featureNormalize function
 %% Test case 1
@@ -99,4 +89,3 @@
 %! fprintf('Testing normalEqn function... ');
 %!assert(normalEqn(X,y), expected, tol);
 %! fprintf('OK!!!\n');
-

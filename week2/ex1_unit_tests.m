@@ -1,30 +1,22 @@
 ## Copyright (C) 2017 Machine Learning Coursera - March 2017
 ##
-## This program is free software; you can redistribute it and/or modify it
-## under the terms of the GNU General Public License as published by
-## the Free Software Foundation; either version 3 of the License, or
-## (at your option) any later version.
-##
-## This program is distributed in the hope that it will be useful,
-## but WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-## GNU General Public License for more details.
-##
-## You should have received a copy of the GNU General Public License
-## along with this program.  If not, see <http://www.gnu.org/licenses/>.
+## Author: Alexandro <alexandro.oliveira@holbertonschool.com>
+## Created: 2017-03-25
 
 ## -*- texinfo -*-
 ##
 ## Unit test for week 2, Programming assignment - Mandatory functions
+##
 ## Put this file in the ex1/ folder and execute it from Octave with:
+##
 ## >> test ex1_unit_tests
-## or
-## >> test ex1_unit_tests verbose % if you want more details about error/success
+##
+## or, if you want more details about error/success
+##
+## >> test ex1_unit_tests verbose
 ##
 ## Enjoy!
 ##
-## Author: Alexandro <alexandro.oliveira@holbertonschool.com>
-## Created: 2017-03-25
 
 %% Test for warmUpExercise
 %!shared A
@@ -74,7 +66,6 @@
 %! thexp = [ 1.70986; 0.19229 ];
 %! tol = -13^10*eps;
 %! fprintf('2 ');
-%!assert(theta, thexp, tol); 
+%!assert(theta, thexp, tol);
 %!assert(J_hist(1), 5.8853, tol);
 %! fprintf('OK!!!\n');
-
