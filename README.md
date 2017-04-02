@@ -23,3 +23,6 @@ break things up.
 - [Week 4](week4)
   - [Logistic Regression](week4/ex3_unit_tests.m)
   - [Neural Networks](week4/ex3_nn_unit_tests.m)
+
+- [Week 5](week5)
+  - [Mandatory functions](week5/ex4_unit_tests.m)
