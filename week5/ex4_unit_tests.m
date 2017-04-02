@@ -5,7 +5,7 @@
 
 ## -*- texinfo -*-
 ##
-## Unit test for week 4, Programming assignment
+## Unit test for week 5, Programming assignment
 ##
 ## Put this file in the ex4/ folder and execute it from Octave with:
 ##
