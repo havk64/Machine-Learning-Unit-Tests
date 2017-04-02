@@ -27,16 +27,18 @@
 %! hls = 25;
 %! nl = 10;
 %! J = nnCostFunction(nn_params, ils, hls, nl, X, y, 0);
-%! fprintf('Testing nnCostFunction without regularization function:\n');
+%! fprintf('Testing nnCostFunction function:\n');
 %!assert(J, 0.287629, tol);
 %! fprintf('  - Without regularization OK!\n');
+%!assert(nnCostFunction(nn_params, ils, hls, nl, X, y, 1), 0.38377, tol);
+%! fprintf('  - With lambda = 1 => OK!\n');
 
 %% Test case with regularization
 %!shared il, hl, nl, nn, X, y, lambda, J, grad, expected, tol
-%! il = 2;              % input layer
-%! hl = 2;              % hidden layer
-%! nl = 4;              % number of labels
-%! nn = [ 1:18 ] / 10;  % nn_params
+%! il = 2;
+%! hl = 2;
+%! nl = 4;
+%! nn = [ 1:18 ] / 10;
 %! X = cos([1 2 ; 3 4 ; 5 6]);
 %! y = [4; 2; 3];
 %! lambda = 4;
