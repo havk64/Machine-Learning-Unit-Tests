@@ -19,7 +19,7 @@
 ##
 
 %% Test case without regularization
-%!shared J, expected, tol, ils, hls, nl, X, y, Theta1, Theta2
+%!shared J, expected, tol, ils, hls, nl, X, y, nn_params, Theta1, Theta2
 %! load('ex4data1.mat');
 %! load('ex4weights.mat');
 %! nn_params = [Theta1(:) ; Theta2(:)];
