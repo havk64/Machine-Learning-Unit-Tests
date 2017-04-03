@@ -83,6 +83,24 @@
 %! fprintf('randInitializeWeights function => PASSED!\n\n');
 
 %% Test for Gradient(Backpropagation)
+%% Test case 1, without regularization
+%!shared ils, hls, nl, m, nn, Theta1, Theta2, X, y, p, ng, grad, costF
+%! ils = 3;
+%! hls = 5;
+%! nl = 3;
+%! m = 5;
+%! Theta1 = debugInitializeWeights(hls, ils);
+%! Theta2 = debugInitializeWeights(nl, hls);
+%! X  = debugInitializeWeights(m, ils - 1);
+%! y  = 1 + mod(1:m, nl)';
+%! nn = [Theta1(:) ; Theta2(:)];
+%! costF = @(p) nnCostFunction(p, ils, hls, nl, X, y, 0);
+%! [cost, grad] = costF(nn);
+%! ng = computeNumericalGradient(costF, nn);
+%! fprintf('Testing Backpropagation Gradient:\n');
+%!assert(norm(ng-grad)/norm(ng+grad) < 1*10^-9);
+%! fprintf('  - Gradient without regularization, OK\n');
+%% Test case 2, with regularization
 %!shared ils, hls, nl, nn, X, y, lambda, grad, expected, tol
 %! ils = 2;
 %! hls = 2;
@@ -96,7 +114,7 @@
 %! 2.50225 2.52644 2.72233]';
 %! tol = -11^10*eps;
 %! [~, grad] = nnCostFunction(nn, ils, hls, nl, X, y, lambda);
-%! fprintf('Testing Backpropagation Gradient:\n');
 %!assert(grad, expected, tol);
-%! fprintf('  - Gradient, test 1 OK!\n');
-%! fprintf('Test on nnCostFunction => PASSED!\n');
+%! fprintf('  - Gradient with regularization OK!\n');
+%! fprintf('Test on Backpropagation Algorithm => PASSED!\n\n');
+%! fprintf('BOOOMMM!!! CONGRATS! \\o/ \\o/ \\o/\n\n');
