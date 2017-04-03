@@ -18,25 +18,74 @@
 ## Enjoy!
 ##
 
-%% Test case without regularization
-%!shared J, expected, tol, ils, hls, nl, X, y, nn_params, Theta1, Theta2
+%% Test for Cost Function
+%% Test case without regularization(lambda = 0)
+%!shared J, expected, tol, ils, hls, nl, X, y, nn_params, Theta1, Theta2, lambda
 %! load('ex4data1.mat');
 %! load('ex4weights.mat');
 %! nn_params = [Theta1(:) ; Theta2(:)];
 %! ils  = 400;
 %! hls = 25;
 %! nl = 10;
-%! J = nnCostFunction(nn_params, ils, hls, nl, X, y, 0);
-%! fprintf('Testing nnCostFunction function:\n');
+%! lambda = 0;
+%! tol = 8^10 * eps;
+%! J = nnCostFunction(nn_params, ils, hls, nl, X, y, lambda);
+%! fprintf('Testing nnCostFunction function(J value):\n');
 %!assert(J, 0.287629, tol);
 %! fprintf('  - Without regularization OK!\n');
 %!assert(nnCostFunction(nn_params, ils, hls, nl, X, y, 1), 0.38377, tol);
-%! fprintf('  - With lambda = 1 => OK!\n');
+%! fprintf('  - With regularization, test 1 OK!\n');
 
 %% Test case with regularization
-%!shared il, hl, nl, nn, X, y, lambda, J, grad, expected, tol
-%! il = 2;
-%! hl = 2;
+%!shared ils, hls, nl, nn, X, y, lambda, J, expected, tol
+%! ils = 2;
+%! hls = 2;
+%! nl = 4;
+%! nn = [ 1:18 ] / 10;
+%! X = cos([1 2 ; 3 4 ; 5 6]);
+%! y = [4; 2; 3];
+%! lambda = 4;
+%! tol = -11^10*eps;
+%! [J ~] = nnCostFunction(nn, ils, hls, nl, X, y, lambda);
+%!assert(J, 19.4736, tol);
+%! fprintf('  - With regularization, test 2 OK!\n\n');
+
+
+%% Test case for sigmoidGradient
+%% Test case 1(from ex4.m file)
+%!shared input, expected, tol
+%! input = [-1 -0.5 0 0.5 1];
+%! expected = [0.196612 0.235004 0.25 0.235004 0.196612];
+%! tol = 9^10*eps;
+%! fprintf('Testing sigmoidGradient function:\n');
+%!assert(sigmoidGradient(input), expected, tol);
+%! fprintf('  - Test case 1, OK\n');
+%% Test case 2(from Resources tab)
+%!shared expected, tol
+%! tol = 11^10*eps;
+%! expected = [1.9661e-001  1.0499e-001  4.5177e-002; ...
+%!   3.3524e-004  1.9661e-001  2.4665e-003; ...
+%!   4.5177e-002  6.6481e-003  9.1022e-004; ...
+%!   1.7663e-002  1.2338e-004  1.0499e-001];
+%!assert(sigmoidGradient([[-1 -2 -3] ; magic(3)]), expected, tol);
+%! fprintf('  - Test case 2, OK\n');
+%! fprintf('sigmoidGradient function => PASSED!\n\n');
+
+%% Test for randInitializeWeights
+%!shared W, st
+%! W = randInitializeWeights(10,5);
+%! st = std(std(W));
+%! fprintf('Testing randInitializeWeights function:\n');
+%!assert(size(W), [5 11]);
+%! fprintf('Test case 1, OK!\n');
+%!assert(0.08 < st < 0.3);
+%! fprintf('Test case 2, OK!\n');
+%! fprintf('randInitializeWeights function => PASSED!\n\n');
+
+%% Test for Gradient(Backpropagation)
+%!shared ils, hls, nl, nn, X, y, lambda, grad, expected, tol
+%! ils = 2;
+%! hls = 2;
 %! nl = 4;
 %! nn = [ 1:18 ] / 10;
 %! X = cos([1 2 ; 3 4 ; 5 6]);
@@ -46,20 +95,8 @@
 %! 0.56876 0.58467 0.59814 1.92598 1.94462 1.98965 2.17855 2.47834 ...
 %! 2.50225 2.52644 2.72233]';
 %! tol = -11^10*eps;
-%! [J grad] = nnCostFunction(nn, il, hl, nl, X, y, lambda);
-%!assert(J, 19.4736, tol);
-%! fprintf('  - With regularization OK!\n');
+%! [~, grad] = nnCostFunction(nn, ils, hls, nl, X, y, lambda);
+%! fprintf('Testing Backpropagation Gradient:\n');
 %!assert(grad, expected, tol);
-%! fprintf('  - Gradient OK!\n');
-%! fprntf('Test on nnCostFunction => PASSED!\n');
-
-%% Test case for sigmoidGradient
-%!shared expected, tol
-%! tol = 11^10*eps;
-%! expected = [1.9661e-001  1.0499e-001  4.5177e-002; ...
-%!   3.3524e-004  1.9661e-001  2.4665e-003; ...
-%!   4.5177e-002  6.6481e-003  9.1022e-004; ...
-%!   1.7663e-002  1.2338e-004  1.0499e-001];
-%! fprintf('Testing sigmoidGradient function:\n');
-%!assert(sigmoidGradient([[-1 -2 -3] ; magic(3)]), expected, tol);
-%! fprintf('sigmoidGradient function => PASSED!\n');
+%! fprintf('  - Gradient, test 1 OK!\n');
+%! fprintf('Test on nnCostFunction => PASSED!\n');
