@@ -35,7 +35,6 @@
 %! fprintf('  - Without regularization OK!\n');
 %!assert(nnCostFunction(nn_params, ils, hls, nl, X, y, 1), 0.38377, tol);
 %! fprintf('  - With regularization, test 1 OK!\n');
-
 %% Test case with regularization
 %!shared ils, hls, nl, nn, X, y, lambda, J, expected, tol
 %! ils = 2;
@@ -50,8 +49,7 @@
 %!assert(J, 19.4736, tol);
 %! fprintf('  - With regularization, test 2 OK!\n\n');
 
-
-%% Test case for sigmoidGradient
+%% Test sigmoidGradient function
 %% Test case 1(from ex4.m file)
 %!shared input, expected, tol
 %! input = [-1 -0.5 0 0.5 1];
